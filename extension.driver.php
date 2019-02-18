@@ -30,7 +30,7 @@
 		public function install(){
 			return Symphony::Database()->query('
 				CREATE TABLE IF NOT EXISTS tbl_customcaptions (
-					`field_id` INT(4) UNSIGNED DEFAULT NULL,
+					`field_id` INT(4),
 					`section_id` INT(4) UNSIGNED DEFAULT NULL,
 					`caption` TINYTEXT DEFAULT NULL,
 					PRIMARY KEY (`field_id`),
@@ -136,7 +136,7 @@
 			$field_ids = array_diff($caption_field_ids, $section_field_ids);
 
 			if(!empty($field_ids)) {
-				Symphony::Database()->delete('`tbl_customcaptions`', 'field_id IN (' . implode(',', $field_ids) . ');');
+				Symphony::Database()->delete('tbl_customcaptions', 'field_id IN (' . implode(',', $field_ids) . ');');
 			}
 		}
 

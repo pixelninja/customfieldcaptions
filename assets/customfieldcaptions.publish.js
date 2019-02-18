@@ -12,7 +12,7 @@
 			// Template to clone for each field instance
 			caption_template = jQuery('<span />').addClass('cc');
 
-		if(data === undefined) return;
+		if(!data) return;
 
 		$fields.each(function(i) {
 			var $field = jQuery(this),

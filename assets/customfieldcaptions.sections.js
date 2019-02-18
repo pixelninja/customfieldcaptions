@@ -61,11 +61,12 @@
 			template.find('input')
 				.attr('name', 'fields[' + i + '][custom_caption]')
 
-			if(data != undefined && field_id != undefined) {
+			if(data != undefined && data[field_id] != undefined) {
 				template.find('input').val(data[field_id].caption);
 			}
 
 			addCaption($field, template);
+			$field.data('heightMax', parseInt($field.data('heightMax') + 55));
 		});
 
 		// Listen for when the duplicator changes [2.3]
